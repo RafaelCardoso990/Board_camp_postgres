@@ -24,6 +24,8 @@ export async function postGame(req,res){
         (name, image, "stockTotal", "categoryId", "pricePerDay") 
         VALUES ($1, $2, $3, $4, $5)`, 
         [req.body.name, req.body.image, req.body.stockTotal, req.body.categoryId, req.body.pricePerDay])
+
+        res.local.game ={ name, image, stockTotal, categoryId, pricePerDay }
         res.status(201).send("ok");
 
     } catch(err){
